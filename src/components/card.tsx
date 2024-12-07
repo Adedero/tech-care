@@ -20,7 +20,7 @@ export default function Card(props: CardProps) {
     <div className={`bg-[--unnamed-color-ffffff] rounded-[16px] overflow-hidden ${props.className}`}>
       <header
         className={
-          `card-title-24pt py-3 px-4 flex items-center ${props.headerIcon ? 'flex-col justify-between' : ''} ${props.headerClassName}`
+          `card-title-24pt py-3 px-4 flex items-center ${props.headerIcon ? 'justify-between' : ''} ${props.headerClassName}`
         }
       >
         {props.headerImage &&

@@ -4,7 +4,7 @@ export default function Loader () {
   return (
     <div className="flex-grow min-h-0 flex gap-5">
       <Card className="h-full max-h-full w-[25%] max-w-[367px]" header="Patients" headerIcon="search">
-        <div className="overflow-y-auto h-[calc(100%-5rem)] p-2">
+        <div className="overflow-y-auto h-[calc(100%-5rem)] p-3">
           {(Array.from({ length: 6 }, (_, index) => index)).map((_, idx) => (
             <div key={idx} className="p-7 bg-slate-100 mb-4 rounded-md"></div>
           ))}

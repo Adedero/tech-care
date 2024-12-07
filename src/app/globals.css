@@ -22,8 +22,16 @@
 --unnamed-color-878787: #878787;
 --unnamed-color-ffffff: #FFFFFF;
 --unnamed-color-ff6200: #FF6200;
---unnamed-color-c8ccd41a: #C8CCD41A;
 
+/* Added colors */
+--unnamed-color-ffe6ep: #FFE6E9;
+--unnamed-color-ffE6f1 : #FFE6F1;
+--unnamed-color-e0f3fa: #E0F3FA;
+--unnamed-color-e66fd2: #E66FD2;
+--unnamed-color-8c6fe6: #8C6FE6;
+--unnamed-color-c8ccd41a: #C8CCD41A;
+--unnamed-color-e3e4e6: #E3E4E6;
+--unnamed-color-f4f0fe: #F4F0FE;
 --background: #F6F7F8;
 
 /* Font/text values */
@@ -92,6 +100,21 @@ font-size: var(--unnamed-font-size-14);
 line-height: var(--unnamed-line-spacing-19);
 letter-spacing: var(--unnamed-character-spacing-0);
 color: var(--unnamed-color-072635);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--unnamed-color-e3e4e6);
+  border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--unnamed-color-072635);
+  border-radius: 50px;
+  border: 2px solid var(--unnamed-color-e3e4e6);
 }
 
 body {

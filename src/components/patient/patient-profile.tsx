@@ -24,6 +24,7 @@ export default function PatientProfile({ patient }: PatientProfileProps) {
           alt={patient.name}
           width="200"
           height="200"
+          priority
           className="rounded-full"
         />  
         <p>{patient.name}</p>

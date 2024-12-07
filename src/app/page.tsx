@@ -6,7 +6,9 @@ import Card from "@/components/card";
 import Icon from "@/components/icon";
 import Header from "@/components/header";
 import Loader from "@/components/loader";
-import PatientProfile from "@/components/patient/patient-profile"
+import PatientProfile from "@/components/patient/patient-profile";
+import DiagnosisHistory from "@/components/patient/diagnosis-history";
+import DiagnosticList from "@/components/patient/diagnostic-list";
 import type { Patient } from "@/types";
 
 const username = 'coalition';
@@ -61,7 +63,7 @@ export default function Home() {
 
       { patients && currentPatient &&
         (<div className="flex-grow min-h-0 flex gap-5">
-          <Card className="h-full max-h-full w-[25%] max-w-[367px]" header="Patients" headerIcon="search">
+          <Card className="h-full max-h-full w-[25%] max-w-80 flex-shrink-0" header="Patients" headerIcon="search">
             {patients && (
               <div className="overflow-y-auto h-[calc(100%-5rem)]">
                 {patients.map((patient) => (
@@ -87,13 +89,16 @@ export default function Home() {
             {!patients && <p>No patients found</p>}
           </Card>
 
-          <div className="h-full overflow-y-auto flex-grow flex flex-col gap-5">
-            <Card header="Diagnosis History"></Card>
-            <Card header="Diagnostic List"></Card>
+          <div className="h-full overflow-y-auto flex-grow flex flex-col gap-5 *:flex-shrink-0">
+            <Card header="Diagnosis History">
+              <DiagnosisHistory history={currentPatient.diagnosis_history} />
+            </Card>
+            <Card header="Diagnostic List">
+              <DiagnosticList list={currentPatient.diagnostic_list} />
+            </Card>
           </div>
 
-          
-          <div className="h-full w-[25%] max-w-[367px] overflow-y-auto flex flex-col gap-5 *:flex-shrink-0">
+          <div className="h-full w-[25%] max-w-80 flex-shrink-0 overflow-y-auto flex flex-col gap-5 *:flex-shrink-0">
             <PatientProfile patient={currentPatient} /> 
             <Card header="Lab Results">
               <div className="grid gap-2 p-3">
