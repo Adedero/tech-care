@@ -21,28 +21,27 @@ export default function Home() {
   const [patients, setPatients] = useState<Patient[] | null>(null);
   const [currentPatient, setCurrentPatient] = useState<Patient | null>(null);
 
-  useEffect(() => {
-    async function fetchPatients() {
-      setLoading(true);
-      setError(null);
-      try {
-        const res = await fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
-          headers: {
-            'Authorization': auth
-          }
-        });
-        const data = await res.json();
-        const formattedData : Patient[] = data.map((item: Record<string, unknown>, index: number) => ({ id: index + 1, ...item }));
-        setPatients(formattedData);
-        setCurrentPatient(formattedData[0]);
-      } catch (err) {
-        setError(err as Error);
-      } finally {
-        setLoading(false);
-      }
+  async function fetchPatients() {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch("https://fedskillstest.coalitiontechnologies.workers.dev", {
+        headers: { 'Authorization': auth }
+      });
+      const data = await res.json();
+      const formattedData : Patient[] = data.map((item: Record<string, unknown>, index: number) => ({ id: index + 1, ...item }));
+      setPatients(formattedData);
+      setCurrentPatient(formattedData[0]);
+    } catch (err) {
+      setError(err as Error);
+    } finally {
+      setLoading(false);
     }
+  }
+
+  useEffect(() => {
     fetchPatients()
-  }, [])
+  }, []);
 
   return (
     <main className="min-h-dvh h-dvh flex flex-col gap-5 p-5">
@@ -52,10 +51,16 @@ export default function Home() {
 
       { error &&     
         (<Card className="w-full" header="Something went wrong!" headerClassName="text-red-500">
-          <div className="text-center">
-            <div>{error.message}</div>
-            <div>
-              <button type="button" className="py-2 px-4 rounded-md bg-red-500">Retry</button>
+          <div className="text-center px-3 pb-8">
+            <div className="text-[16px] font-bold">{error.message}</div>
+            <div className="mt-3">
+              <button
+                type="button"
+                className="py-2 px-4 rounded-md bg-[--activestate_bg_1] font-semibold"
+                onClick={fetchPatients}
+              >
+                Retry
+              </button>
             </div>
           </div>
         </Card>)

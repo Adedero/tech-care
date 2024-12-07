@@ -5,7 +5,6 @@ import { type Patient } from "@/types";
 import { SwitchCase, SwitchCaseItem } from '@/components/switchcase';
 import { type ChartsAxisData } from "@mui/x-charts";
 
-
 interface DiagnosisHistoryProps {
   history: Patient["diagnosis_history"];
 }
@@ -38,7 +37,7 @@ export default function DiagnosisHistory({ history }: DiagnosisHistoryProps) {
   const handleAxisClick = (event: MouseEvent, data: ChartsAxisData | null) => {
     const index: number = data?.dataIndex ?? 0;
     setHoveredPoint(sortedHistory[index]);
-  }
+  };
 
   return (
     <div className="p-3 grid gap-5">
