@@ -6,6 +6,7 @@ import Card from "@/components/card";
 import Icon from "@/components/icon";
 import Header from "@/components/header";
 import Loader from "@/components/loader";
+import PatientProfile from "@/components/patient/patient-profile"
 import type { Patient } from "@/types";
 
 const username = 'coalition';
@@ -13,8 +14,8 @@ const password = 'skills-test';
 const auth = 'Basic ' + btoa(username + ':' + password);
 
 export default function Home() {
-  const [loading, setLoading] = useState<booleean>(false);
-  const [error, setError] = useState<unknown | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
   const [patients, setPatients] = useState<Patient[] | null>(null);
   const [currentPatient, setCurrentPatient] = useState<Patient | null>(null);
 
@@ -33,7 +34,7 @@ export default function Home() {
         setPatients(formattedData);
         setCurrentPatient(formattedData[0]);
       } catch (err) {
-        setError(err);
+        setError(err as Error);
       } finally {
         setLoading(false);
       }
@@ -49,8 +50,8 @@ export default function Home() {
 
       { error &&     
         (<Card className="w-full" header="Something went wrong!" headerClassName="text-red-500">
-          <div class="text-center">
-            <div>{error}</div>
+          <div className="text-center">
+            <div>{error.message}</div>
             <div>
               <button type="button" className="py-2 px-4 rounded-md bg-red-500">Retry</button>
             </div>
@@ -92,9 +93,18 @@ export default function Home() {
           </div>
 
           
-          <div className="h-full w-[25%] max-w-[367px] overflow-y-auto flex flex-col gap-5">
-            <Card header={currentPatient.name}></Card>
-            <Card header="Lab Results"></Card>
+          <div className="h-full w-[25%] max-w-[367px] overflow-y-auto flex flex-col gap-5 *:flex-shrink-0">
+            <PatientProfile patient={currentPatient} /> 
+            <Card header="Lab Results">
+              <div className="grid gap-2 p-3">
+                {currentPatient.lab_results.map(result => (
+                  <div key={result} className="cursor-pointer hover:bg-[--background] py-2 px-3 rounded flex items-center justify-between">
+                    <p>{result}</p>
+                    <Icon icon="download" />
+                  </div>
+                ))}
+              </div>
+            </Card>
           </div>
         </div>)
       }
