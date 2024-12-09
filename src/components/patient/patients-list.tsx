@@ -36,7 +36,7 @@ export default function PatientsList({ loading, error, patients, onFetchPatients
   const handleInput = () => {
     if (patients) {
       const matches = patients.filter((patient) =>
-        patient.name.toLowerCase().includes(value.toLowerCase())
+        patient.name.toLowerCase().includes(value.toLowerCase().trim())
       );
       setMatchedPatients(matches);
     }
