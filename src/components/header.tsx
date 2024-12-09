@@ -1,15 +1,20 @@
+'use client';
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
 import Icon from "@/components/icon";
 import Image from 'next/image';
 
-const links : { id: number, name: string; icon: string; active: boolean }[] = [
-  { id: 1, name: "Overview", icon: "home", active: false },
-  { id: 2, name: "Patients", icon: "group", active: true },
-  { id: 3, name: "Schedule", icon: "calendar", active: false },
-  { id: 4, name: "Message", icon: "message", active: false },
-  { id: 5, name: "Transactions", icon: "credit-card", active: false },
+const links : { id: number, path: string; name: string; icon: string }[] = [
+  { id: 1, path: "/", name: "Overview", icon: "home"},
+  { id: 2, path: "/patients", name: "Patients", icon: "group"},
+  { id: 3, path: "/schedule", name: "Schedule", icon: "calendar"},
+  { id: 4, path: "/message", name: "Message", icon: "message"},
+  { id: 5, path: "transactions", name: "Transactions", icon: "credit-card"},
 ];
 
 export default function Header() {
+  const pathname = usePathname();
+
   return (
     <header className="h-fit bg-[--unnamed-color-ffffff] rounded-full px-6 py-2 flex items-center justify-between">
       <div>
@@ -18,12 +23,17 @@ export default function Header() {
 
       <nav className="flex items-center gap-3">
         {links.map(link => (
-          <div
+          <Link
             key={link.id}
-            className={`body-emphasized-14pt cursor-pointer flex items-center gap-2 py-2 px-4 ${link.active ? 'bg-[--activestate_bg_1] rounded-full' : ''}`}>
+            href={link.path}
+            className={
+              `body-emphasized-14pt cursor-pointer flex items-center gap-2 py-2 px-4
+              ${pathname === link.path ? 'bg-[--activestate_bg_1] rounded-full' : ''}`
+              }
+            >
             <Icon icon={link.icon} />
             <p>{link.name}</p>
-          </div>
+          </Link>
         ))}
       </nav>
 

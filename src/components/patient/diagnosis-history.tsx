@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
 import Icon from "@/components/icon";

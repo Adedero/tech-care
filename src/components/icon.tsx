@@ -8,6 +8,7 @@ interface IconProps {
   fill?: string;
 }
 
+
 //#072635
 export default function Icon ({ icon, width, height, fill = "#072635" } : IconProps) {
   return (
@@ -148,6 +149,12 @@ export default function Icon ({ icon, width, height, fill = "#072635" } : IconPr
         </svg>
       </SwitchCaseItem>
 
+      <SwitchCaseItem value="cancel-circle">
+        <svg fill={fill} width={width ?? "32"} height={height ?? "32"} viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>cancel</title> <path d="M16 29c-7.18 0-13-5.82-13-13s5.82-13 13-13 13 5.82 13 13-5.82 13-13 13zM21.961 12.209c0.244-0.244 0.244-0.641 0-0.885l-1.328-1.327c-0.244-0.244-0.641-0.244-0.885 0l-3.761 3.761-3.761-3.761c-0.244-0.244-0.641-0.244-0.885 0l-1.328 1.327c-0.244 0.244-0.244 0.641 0 0.885l3.762 3.762-3.762 3.76c-0.244 0.244-0.244 0.641 0 0.885l1.328 1.328c0.244 0.244 0.641 0.244 0.885 0l3.761-3.762 3.761 3.762c0.244 0.244 0.641 0.244 0.885 0l1.328-1.328c0.244-0.244 0.244-0.641 0-0.885l-3.762-3.76 3.762-3.762z"></path></g>
+        </svg>
+      </SwitchCaseItem>
+
       <SwitchCaseItem value="arrow-up">
         <svg xmlns="http://www.w3.org/2000/svg" width={width ?? "10"} height={height ?? "5.479"} viewBox="0 0 10 5.479">
           <path id="ArrowUp" d="M4.364,5.2.186,1.024A.673.673,0,0,1,.05.832.532.532,0,0,1,0,.6.606.606,0,0,1,.165.18.56.56,0,0,1,.6,0H9.4a.56.56,0,0,1,.434.181A.611.611,0,0,1,10,.6a1.85,1.85,0,0,1-.186.421L5.636,5.2a.962.962,0,0,1-.3.21.9.9,0,0,1-.677,0A.963.963,0,0,1,4.364,5.2Z" transform="translate(10 5.479) rotate(180)" fill={fill}/>
@@ -237,6 +244,12 @@ export default function Icon ({ icon, width, height, fill = "#072635" } : IconPr
               <path id="Path_18" data-name="Path 18" d="M20.131,30.786l-4.24-13.852-2.785,6.335L.028,23.161V20.573l11.389.108,4.91-11.17,4.466,14.594,2.241-4.154h17.6v2.588H24.578Z" transform="translate(0 0)" fill="#072635"/>
             </g>
           </g>
+        </svg>
+      </SwitchCaseItem>
+
+      <SwitchCaseItem value="user-heart">
+        <svg width={width ?? "24"} height={height ?? "24"} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="11" cy="6" r="4" fill="#1C274C"></circle> <path fillRule="evenodd" clipRule="evenodd" d="M14.5126 21.4874C15.0251 22 15.8501 22 17.5 22C19.1499 22 19.9749 22 20.4874 21.4874C21 20.9749 21 20.1499 21 18.5C21 16.8501 21 16.0251 20.4874 15.5126C19.9749 15 19.1499 15 17.5 15C15.8501 15 15.0251 15 14.5126 15.5126C14 16.0251 14 16.8501 14 18.5C14 20.1499 14 20.9749 14.5126 21.4874ZM16.5266 19.9765C15.8245 19.4738 15 18.8833 15 17.8598C15 16.7299 16.375 15.9285 17.5 17.0148C18.625 15.9285 20 16.7299 20 17.8598C20 18.8833 19.1755 19.4738 18.4734 19.9765C18.4005 20.0287 18.3288 20.08 18.2596 20.1308C18 20.3209 17.75 20.5 17.5 20.5C17.25 20.5 17 20.3209 16.7404 20.1308C16.6712 20.08 16.5995 20.0287 16.5266 19.9765Z" fill="#1C274C"></path> <path opacity="0.5" d="M14.5942 21.5625C14.5661 21.5388 14.5389 21.5138 14.5126 21.4874C14 20.9749 14 20.1499 14 18.5C14 16.8501 14 16.0251 14.5126 15.5126C15.0251 15 15.8501 15 17.5 15C17.6501 15 17.7933 15 17.9301 15.0004C16.547 13.6551 13.9614 12.75 11 12.75C6.58172 12.75 3 14.7647 3 17.25C3 19.7353 3 21.75 11 21.75C12.4426 21.75 13.625 21.6845 14.5942 21.5625Z" fill="#1C274C"></path></g>
         </svg>
       </SwitchCaseItem>
     </SwitchCase>
