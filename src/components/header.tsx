@@ -28,7 +28,7 @@ export default function Header() {
             href={link.path}
             className={
               `body-emphasized-14pt cursor-pointer flex items-center gap-2 py-2 px-4
-              ${pathname === link.path ? 'bg-[--activestate_bg_1] rounded-full' : ''}`
+              ${pathname === link.path || pathname.startsWith(link.path + '/')? 'bg-[--activestate_bg_1] rounded-full' : ''}`
               }
             >
             <Icon icon={link.icon} />
